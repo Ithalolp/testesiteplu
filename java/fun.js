@@ -286,16 +286,22 @@ document.addEventListener("DOMContentLoaded", function () {
   // =============================================
   // 8. SCROLL REVEAL - SIMPLIFICADO
   // =============================================
-
   function initScrollReveal() {
     const revealElements = document.querySelectorAll(".reveal");
 
-    // Remove a classe reveal para garantir visibilidade
-    revealElements.forEach((element) => {
-      element.classList.remove("reveal");
-      element.style.opacity = "1";
-      element.style.transform = "translateY(0)";
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
   }
 
   // =============================================
