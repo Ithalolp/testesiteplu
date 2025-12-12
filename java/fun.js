@@ -284,6 +284,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // =============================================
+  // VÍDEO HEADER
+  // =============================================
+  function initVideoHeader() {
+    const video = document.getElementById("heroVideo");
+    const header = document.querySelector(".hero-header");
+
+    if (!video || !header) {
+      console.log("🙈 Vídeo Header: Elementos não encontrados.");
+      return;
+    }
+    header.classList.add("video-loaded");
+
+    // Remove o listener que esperava o vídeo carregar antes de mostrar o overlay.
+    // video.addEventListener("canplaythrough", () => {
+    //   header.classList.add("video-loaded");
+    //   console.log("✅ Vídeo do cabeçalho carregado e revelado!");
+    // });
+
+    console.log(
+      "✅ Vídeo Header inicializado (revelação imediata do overlay)."
+    );
+  }
+  // =============================================
   // 8. SCROLL REVEAL - SIMPLIFICADO
   // =============================================
   function initScrollReveal() {
