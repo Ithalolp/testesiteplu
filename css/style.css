@@ -2348,3 +2348,14 @@ main {
 .nav-toggle[aria-expanded="true"] .fa-times {
   color: var(--gray-900) !important;
 }
+/* --- GLOBAL SCROLL REVEAL --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
