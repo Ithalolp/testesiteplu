@@ -307,3 +307,60 @@
     left: 110%;
   }
 }
+
+/* ============================================= */
+/* HERO TITLE - RESPONSIVO (2 LINHAS NO MOBILE) */
+/* ============================================= */
+
+/* No desktop: mantém tudo em uma linha */
+.hero-title.fill-words {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  line-height: 1 !important;
+}
+
+/* No mobile: quebra em duas linhas */
+@media (max-width: 768px) {
+  .hero-title.fill-words {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* Cria a primeira linha: "Criamos experiências" */
+  .hero-title.fill-words span:nth-child(1),
+  .hero-title.fill-words span:nth-child(2) {
+    display: inline-block;
+  }
+
+  /* Cria a segunda linha: "visuais que emocionam" */
+  .hero-title.fill-words span:nth-child(3),
+  .hero-title.fill-words span:nth-child(4),
+  .hero-title.fill-words span:nth-child(5) {
+    display: inline-block;
+  }
+
+  /* Adiciona um pseudo-elemento para quebrar a linha */
+  .hero-title.fill-words span:nth-child(2)::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+  }
+
+  /* Ajusta o tamanho da fonte no mobile */
+  .hero-title.fill-words span {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: -0.2rem;
+  }
+}
+
+/* Para telas muito pequenas (mobile pequeno) */
+@media (max-width: 480px) {
+  .hero-title.fill-words span {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+}
+
